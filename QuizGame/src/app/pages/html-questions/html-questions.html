@@ -8,12 +8,23 @@
    </header>
 
    <main>
-    <app-card [index]="page+1" [questions]="question.question" [options]="question.options" [type]="question.responseType"></app-card>
+    <app-card [id]="question.id" [isSaved]="question.saved" (onsave)="handleSave($event)" [index]="page+1" [questions]="question.question" [options]="question.options" [type]="question.responseType"></app-card>
 
     <div class="controls">
+        <div>
         <app-button label="<" (click)="moveLeft()"></app-button>
         <span>{{page+1}}</span>
         <app-button label=">" (click)="moveRight()"></app-button>
+        </div>
+        <div class="progressBar">
+            <div>
+            <p>{{"Saved :"+(saveCount)+"/5"}}</p>
+            </div>
+            <div class="progress">
+            <p>{{(saveCount)*20+"%"}}</p>
+            <mat-progress-bar mode="determinate" [value]="(saveCount)*20"></mat-progress-bar>
+            </div>
+        </div>
     </div>
    </main>
 </div>

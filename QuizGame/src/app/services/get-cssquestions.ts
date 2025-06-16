@@ -7,52 +7,70 @@ export class GetCSSQuestions {
 
   constructor() { }
 
-  questions=[
+  questions = [
     {
-      question:"What does CSS stand for?",
-      responseType:"text",
-      options:null
+      id: 1,
+      question: "What does CSS stand for?",
+      responseType: "text",
+      options: null,
+      saved: false
     },
     {
-      question:"Which CSS property is used to change the text color?",
-      responseType:"radio",
-      options:[
+      id: 2,
+      question: "Which CSS property is used to change the text color?",
+      responseType: "radio",
+      options: [
         "color",
         "text-color",
         "font-color",
         "text-style"
-      ]
+      ],
+      saved: false
     },
     {
-      question:"Which of the following are valid CSS selectors?",
-      responseType:"checkbox",
-      options:[
+      id: 3,
+      question: "Which of the following are valid CSS selectors?",
+      responseType: "checkbox",
+      options: [
         ".class",
         "#id",
         "element",
         "[attribute]",
         "*",
         ":hover"
-      ]
+      ],
+      saved: false
     },
     {
-      question:"What is the CSS box model?",
-      responseType:"text",
-      options:null
+      id: 4,
+      question: "What is the CSS box model?",
+      responseType: "text",
+      options: null,
+      saved: false
     },
     {
-      question:"Which CSS property is used to create space between elements?",
-      responseType:"radio",
-      options:[
+      id: 5,
+      question: "Which CSS property is used to create space between elements?",
+      responseType: "radio",
+      options: [
         "margin",
         "padding",
         "border",
         "spacing",
-      ]
+      ],
+      saved: false
     }
   ]
 
-  getQuestion(index:number){
+  saveQuestion(quesId: number) {
+    const question = this.questions.find((ques) => ques.id == quesId)
+
+    if (question) {
+      question.saved = true
+    }
+  }
+
+  getQuestion(index: number) {
     return this.questions[index]
   }
 }

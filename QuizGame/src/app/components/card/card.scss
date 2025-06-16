@@ -5,8 +5,16 @@
 }
 .card{
     min-height: 300px;
+    padding: 0.5rem;
     .input{
         width: 90%;
         height: 250px;
+        background: none;
+        margin: 10px;
+        border-radius: 10px;
+        padding: 1rem;
     }
+    // .saved{
+    //     background-color: aqua;
+    // }
 }

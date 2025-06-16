@@ -12,4 +12,26 @@
             width: 30px;
         }
     }
+
+    main{
+        .controls{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            div{
+                margin: 10px;
+            }
+
+            .progressBar{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 80%;
+
+                .progress{
+                    width: 80%;
+                }
+            }
+        }
+    }
 }
