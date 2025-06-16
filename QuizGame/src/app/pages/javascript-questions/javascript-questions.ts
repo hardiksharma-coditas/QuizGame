@@ -1,11 +1,42 @@
-import { Component } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
+import { Card } from "../../components/card/card";
+import { Button } from "../../shared/button/button";
+import { GetJavascriptQuestions } from '../../services/get-javascript-questions';
 
 @Component({
   selector: 'app-javascript-questions',
-  imports: [],
+  imports: [Card, Button],
   templateUrl: './javascript-questions.html',
   styleUrl: './javascript-questions.scss'
 })
-export class JavascriptQuestions {
+export class JavascriptQuestions implements OnInit{
 
+  page:number=0
+  question:any={}
+  getQuestionService=inject(GetJavascriptQuestions)
+
+  ngOnInit(): void {
+    this.question=this.getQuestionService.getQuestion(this.page)
+     console.log(this.question)
+  }
+
+   getQuestions(page:number){
+    this.question=this.getQuestionService.getQuestion(page)
+     console.log(this.question)
+   }
+
+   moveLeft(){
+   if(this.page>0){
+    --this.page;
+   this.getQuestions(this.page)
+   }
+   }
+
+   moveRight(){
+
+    if(this.page<4){
+      ++this.page;
+    this.getQuestions(this.page)
+    }
+   }
 }

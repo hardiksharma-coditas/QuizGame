@@ -1,0 +1,24 @@
+<mat-card appearance="outlined" class="card">
+    <app-card-header [index]="index()" [question]="questions()" [type]="type()"></app-card-header>
+    <mat-card-content>
+        @if(options()){
+
+        @if(type()=="checkbox"){
+        <section class="section">
+            @for(option of options();track $index){
+            <p><mat-checkbox>{{option}}</mat-checkbox></p>
+            }
+        </section>
+        }
+
+        @else if(type()=="radio"){
+        @for(option of options();track $index){
+        <mat-radio-button class="example-radio-button">{{option}}</mat-radio-button>
+        }
+        }
+        }
+        @else{
+        <textarea class="input" matInput placeholder="Ex. It makes me feel..."></textarea>
+        }
+    </mat-card-content>
+</mat-card>

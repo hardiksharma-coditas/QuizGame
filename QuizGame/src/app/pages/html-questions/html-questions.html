@@ -1,6 +1,19 @@
 <div class="htmlQuesContainer">
    <header>
-    <h2>HTML Questions</h2>
+    <div class="heading">
+        <img src="https://cdn-icons-png.flaticon.com/512/180/180891.png" alt="">
+        <h3>HTML Questions</h3>
+    </div>
     <p>Complete all 5 questions in this section</p>
    </header>
+
+   <main>
+    <app-card [index]="page+1" [questions]="question.question" [options]="question.options" [type]="question.responseType"></app-card>
+
+    <div class="controls">
+        <app-button label="<" (click)="moveLeft()"></app-button>
+        <span>{{page+1}}</span>
+        <app-button label=">" (click)="moveRight()"></app-button>
+    </div>
+   </main>
 </div>

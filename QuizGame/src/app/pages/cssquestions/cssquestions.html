@@ -1,1 +1,19 @@
-<p>cssquestions works!</p>
+<div class="cssQuesContainer">
+   <header>
+    <div class="heading">
+        <img src="https://www.iconpacks.net/icons/2/free-css-icon-1478-thumb.png" alt="">
+        <h3>CSS Questions</h3>
+    </div>
+    <p>Complete all 5 questions in this section</p>
+   </header>
+
+   <main>
+    <app-card [index]="page+1" [questions]="question.question" [options]="question.options" [type]="question.responseType"></app-card>
+
+    <div class="controls">
+        <app-button label="<" (click)="moveLeft()"></app-button>
+        <span>{{page+1}}</span>
+        <app-button label=">" (click)="moveRight()"></app-button>
+    </div>
+   </main>
+</div>

@@ -1,1 +1,19 @@
-<p>javascript-questions works!</p>
+<div class="javascriptQuesContainer">
+   <header>
+    <div class="heading">
+        <img src="https://cdn-icons-png.flaticon.com/512/6943/6943960.png" alt="">
+        <h3>Javascript Questions</h3>
+    </div>
+    <p>Complete all 5 questions in this section</p>
+   </header>
+
+   <main>
+    <app-card [index]="page+1" [questions]="question.question" [options]="question.options" [type]="question.responseType"></app-card>
+
+    <div class="controls">
+        <app-button label="<" (click)="moveLeft()"></app-button>
+        <span>{{page+1}}</span>
+        <app-button label=">" (click)="moveRight()"></app-button>
+    </div>
+   </main>
+</div>
